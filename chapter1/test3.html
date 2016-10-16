@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 3</title>
+    <style>
+        div {
+            height: 50px;
+            width: 50px;
+            background-color: black;
+        }
+
+        .redBox {
+            background-color: red;
+        }
+
+        .blueBox {
+            background-color: blue;
+        }
+
+        .greenBox {
+            background-color: green;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+
+<button id="red">Red</button>
+<button id="blue">Blue</button>
+<button id="green">Green</button>
+<br><br>
+<div id="div1"></div>
+
+<script>
+    $('#red').click(function() {
+        remClass('#div1');
+        $('#div1').addClass('redBox');
+    });
+
+    $('#blue').click(function() {
+        remClass('#div1');
+        $('#div1').addClass('blueBox');
+    });
+
+    $('#green').click(function() {
+        remClass('#div1');
+        $('#div1').addClass('greenBox');
+    });
+
+    function remClass(name){
+        $(name).removeClass();
+    }
+
+</script>
+
+</body>
+</html>

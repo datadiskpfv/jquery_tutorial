@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 5</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+
+<p id="hello">Hello World!!!!</p>
+
+<script>
+    $(function() {
+      var str = "      Hello World too!!";
+      $('#hello').html("there should be no spaces: " + $.trim(str));
+
+      $("<p id='hello2'>Added a paragraph using JQuery</p>").insertAfter('#hello');
+
+      $('p').append("<b>Appended text</b>");
+
+      $('#hello2').append("<p>added after hello</p>");
+    });
+</script>
+</body>
+</html>

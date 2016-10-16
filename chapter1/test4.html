@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+        div {
+            height: 150px;
+            width: 150px;
+            position: absolute;
+            border: solid 1px black;
+        }
+
+        #div1 {
+            background-color: red;
+            z-index: 2;
+        }
+
+        #div2 {
+            top: 50px;
+            left: 50px;
+            background-color: blue;
+            z-index: 1;
+        }
+
+        #div3 {
+            top: 100px;
+            left: 100px;
+            background-color: green;
+            z-index: 3;
+        }
+
+        #main {
+            top: 100px;
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<button id="btnHide">Hide Me!</button>
+<button id="btnShow">Show Me!</button>
+
+<div id="main">
+  <div id="div1"></div>
+  <div id="div2"></div>
+  <div id="div3"></div>
+</div>
+
+<script>
+    $('#btnHide').click( function() {
+        $('#main').hide(1000);
+    });
+
+    $('#btnShow').click( function() {
+        $('#main').show(1000);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+</head>
+<body>
+
+<div id="radio_grp">
+    <input type="radio" id="radio1" name="radio" value="radio1" checked>
+      <label for="radio1">Radio1</label>
+    <input type="radio" id="radio2" name="radio" value="radio2">
+      <label for="radio2">Radio2</label>
+    <input type="radio" id="radio3" name="radio" value="radio3">
+      <label for="radio3">Radio3</label>
+</div>
+
+<button id="btnCheck">Check</button>
+
+<div id="result"></div>
+
+<script>
+    $('#btnCheck').click( function() {
+        // here i have added input:radio
+        $('#result').html($('input:radio[name=radio]:checked').val());
+    });
+
+    // a little less typing removed the inout:radio
+    $('#result').html($('[name=radio]:checked').val());
+</script>
+
+</body>
+</html>
