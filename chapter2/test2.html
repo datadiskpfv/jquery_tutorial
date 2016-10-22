@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test two</title>
+    <script type="text/javascript" src="scripts/jquery-1.4.js"></script>
+</head>
+<body>
+  <img id="image" src="selectors/images/image.1.jpg" width="150" height="150">
+
+<script>
+    $(function() {
+        var element = $('#image')[0];
+
+        element.addEventListener( 'click', function(event) {
+            alert('BOOM One!');
+        }, false);
+
+        element.addEventListener( 'click', function(event) {
+            alert('BOOM Two!');
+        }, false);
+
+        element.addEventListener( 'click', function(event) {
+            alert('BOOM Three!');
+        }, false);
+    });
+</script>
+</body>
+</html>

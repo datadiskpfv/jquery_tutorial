@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html id="greatgreatgrandpa">
+<head>
+    <title>DOM Level 0 Bubbling Example</title>
+    <script type="text/javascript" src="scripts/jquery-1.4.js">
+    </script>
+
+</head>
+
+<body >
+  <div>
+      <img id="vstar" src="images/vstar.jpg"/>
+  </div>
+
+  <div>
+      <img id="vstar2" src="images/vstar.jpg"/>
+  </div>
+
+  <div id="console"></div>
+
+  <script type="text/javascript">
+      $('#vstar').bind('click', function() {
+          say('BOOM One!');
+      });
+
+      $('#vstar').bind('click', function() {
+          say('BOOM Two!');
+      });
+
+      // will only run event handler only once
+      $('#vstar2').one('click', function() {
+          say('One time only!');
+      });
+
+      $
+
+      function say(text) {
+          $('#console').append('<div>'+text+'</div>');
+      }
+  </script>
+</body>
+</html>
