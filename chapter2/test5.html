@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 5</title>
+    <script type="text/javascript" src="scripts/jquery-1.4.js"></script>
+</head>
+<body>
+
+<img id="image1" src="images/hibiscus.small.jpg" height="80" width="120"/>
+
+<script>
+    // we create the event no #button1 exists yet
+    // if you were to use bind the handler was not attach to the element
+    //$('#button1').live('click', function() {
+    //    alert("Wow this event handler was created before the element");
+    //        }
+    //);
+
+    // we now create the element
+    //$('<button id="button1">click me</button>').appendTo('body');
+
+    // lets trigger the button1 click when we get here
+    // you can create trigger for of events such as blur, change, click, focus, etc
+    //$('#button1').trigger('click');
+
+    // each time you set the toggle it will execute the next function, then it loops back
+    $(function() {
+        $('img[src*=small]').toggle(
+                function () {
+                    $(this).attr('src', $(this).attr('src').replace(/small/, 'medium'));
+                },
+                function () {
+                    $(this).attr('src', $(this).attr('src').replace(/medium/, 'large'));
+                },
+                function () {
+                    $(this).attr('src', $(this).attr('src').replace(/large/, 'small'));
+                }
+        );
+    });
+
+    // using the hover method, you can also use one handler to handle both in and out
+    $('#image1').hover(hoverin, hoverout);
+    function hoverin() {
+        alert("you have hovered into the image");
+    }
+    function hoverout() {
+        alert("you have hovered out of the image");
+    }
+</script>
+
+</body>
+</html>
