@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test1</title>
+    <style>
+        #templates {
+            display: none;
+        }
+    </style>
+    <script src="../scripts/jquery-1.4.js"></script>
+</head>
+<body>
+
+<div id="templates">
+    <div class="template hello">
+        <div>Hello World</div>
+    </div>
+    <div class="template goodbye">
+        <div>Goodbye World</div>
+    </div>
+</div>
+
+<div id="results">
+    <div class="buttonBar">
+    <button type="button" id="removeButton">Remove</button>
+    </div>
+</div>
+
+<script>
+    $('div.template.hello').children().clone().addClass('qualifier1').prependTo('#results');
+    $('div.template.goodbye').children().clone().addClass('qualifier2').prependTo('#results');
+
+    $('#removeButton').live('click',function(){
+        alert("removing");
+        $(this).closest('div.qualifier2').remove();
+        alert("finished");
+    });
+</script>
+
+</body>
+</html>
