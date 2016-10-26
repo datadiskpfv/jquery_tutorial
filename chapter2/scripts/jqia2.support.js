@@ -133,6 +133,4 @@
 function say(text) {
   if (!$('#console').hasClass('jqia2-console')) $('#console').labConsole();
   $('#console').labConsole('say',text);
-
-  $('td:last-child').appendChild("1974")
 }

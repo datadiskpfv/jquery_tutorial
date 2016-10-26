@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <title>Test1</title>
     <script type="text/javascript" src="../chapter2/scripts/jquery-1.4.js"></script>
+    <style>
+        img {
+            position: absolute;
+        }
+
+        img[alt='moon'] {
+            top: 150px;
+            left: 0;
+            z-index: 1;
+        }
+
+        img[alt='limes'] {
+            top: 160px;
+            left: 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -16,19 +32,57 @@
 <br>
 <button id="btn1">Write</button>
 <button id="btn2">Readonly</button>
+<br>
+<br>
+<img id="img2" class="moon" alt="moon" src="effects/moon.png" width="100" height="100">
+<br>
+<button id="btn3">Move Moon</button>
+<br>
+<br>
+<img id="img1" class="image" alt="limes" src="effects/limes.png" width="100" height="100">
 
 <script>
     $('#btn1').bind('click', function(){
        $('#opacityValueControl').attr('readonly', false);
-        alert("readonly is: " + $('#opacityValueControl').attr('readonly'));
+        //alert("readonly is: " + $('#opacityValueControl').attr('readonly'));
     });
 
     $('#btn2').bind('click', function(){
         $('#opacityValueControl').attr('readonly', true);
-        alert("readonly is: " + $('#opacityValueControl').attr('readonly'));
+        //alert("readonly is: " + $('#opacityValueControl').attr('readonly'));
     });
 
-    alert("readonly is: " + $('#opacityValueControl').attr('readonly'));
+    //alert("readonly is: " + $('#opacityValueControl').attr('readonly'));
+    $('.image').each(function() {
+        $(this).css('position','relative')
+                .animate({
+                    width: $(this).width() * 2,
+                    height: $(this).height() * 2,
+                    top: $(this).position().top + 10,
+                    left: $(this).position().left + 100
+                },10000);
+    });
+
+    $('.image').each(function() {
+        var position = $(this).position();
+        $(this).animate({
+                    opacity: 'hide',
+                    width: $(this).width() * 5,
+                    height: $(this).height() * 5,
+                    top: position.top - ($(this).height() * 5 / 2),
+                    left: position.left - ($(this).width() * 5 / 2)
+                },'normal');
+    });
+
+    $('#btn3').bind('click', function(){
+        $("img[alt='moon']").animate({left:'+=256'},2500);
+        $("img[alt='moon']").animate({top:'+=256'},2500);
+        $("img[alt='moon']").animate({left:'-=256'},2500);
+        $("img[alt='moon']").animate({top:'-=256'},2500);
+    });
+
+    $('#btn3').trigger('click');
+
 </script>
 
 </body>
