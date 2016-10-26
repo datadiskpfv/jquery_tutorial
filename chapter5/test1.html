@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test1</title>
+    <script type="text/javascript" src="../chapter2/scripts/jquery-1.4.js"></script>
+</head>
+<body>
+
+<div id="opacityPane">
+    <div>
+        <label for="opacityValueControl">Opacity:</label>
+        <input type="text" name="opacityValue" id="opacityValueControl" readonly/> % (for "Fade to")
+    </div>
+</div>
+<br>
+<button id="btn1">Write</button>
+<button id="btn2">Readonly</button>
+
+<script>
+    $('#btn1').bind('click', function(){
+       $('#opacityValueControl').attr('readonly', false);
+        alert("readonly is: " + $('#opacityValueControl').attr('readonly'));
+    });
+
+    $('#btn2').bind('click', function(){
+        $('#opacityValueControl').attr('readonly', true);
+        alert("readonly is: " + $('#opacityValueControl').attr('readonly'));
+    });
+
+    alert("readonly is: " + $('#opacityValueControl').attr('readonly'));
+</script>
+
+</body>
+</html>
