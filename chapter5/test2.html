@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 2</title>
+    <script type="text/javascript" src="../chapter2/scripts/jquery-1.4.js"></script>
+    <script type="text/javascript" src="../chapter2/scripts/jqia2.support.js"></script>
+</head>
+<body>
+
+<img src="effects/earth.png" alt="Earth">
+<img src="effects/moon.png" alt="Moon">
+<br>
+<button id="dequeue">Dequeue</button>
+<br>
+<br>
+
+<script>
+    $(function() {
+      // the first function will delay by 10 seconds
+      $('img').queue('chain', function() { say('First: ' + $(this).attr('alt')); $(this).dequeue('chain');}).delay(5000, 'chain');
+      $('img').queue('chain', function() { say('Second: ' + $(this).attr('alt')); });
+      $('img').queue('chain', function() { say('Third: ' + $(this).attr('alt')); });
+      $('img').queue('chain', function() { say('Fourth: ' + $(this).attr('alt')); });
+
+      // get the queue length and the queue contains and display the info
+      var queue = $('img').queue('chain');
+      console.log('There are ' + queue.length + ' functions left in the "chain" queue:');
+      console.log(queue);
+    });
+
+    // basically dequeue executes the functions on the 'chain' queue
+    $('button').click(function() {
+        $('img').dequeue('chain');
+
+        var queue = $('img').queue('chain');
+        console.log('There are ' + queue.length + ' functions left in the "chain" queue:');
+    });
+</script>
+
+</body>
+</html>
