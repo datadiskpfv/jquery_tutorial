@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test one</title>
+    <script src="../chapter2/scripts/jquery-1.4.js"></script>
+</head>
+<body>
+
+<div id="myDiv1"></div>
+
+<script>
+    // by default $ = jQuery when to load a jquery language in
+    // below will stop using the $ jQuery shortcut, used if other languages use $
+    // stop conflicts
+    $.noConflict();
+
+    // wont be able to use the below line, $ no longer points to jQuery
+    // $('<span>Hello World </span>').appendTo('#myDiv1');
+
+    jQuery('<span>Hello World, </span>').appendTo('#myDiv1');
+
+    // for this function only we make $ = jQuery, notice the (jQuery) at the end of the function
+    (function($) {
+        $('<span>Goodbye World, </span>').appendTo('#myDiv1');
+    })(jQuery);
+
+    // you could use a straight forward string, if you wanted too
+    (function(JQ) {
+        JQ('<span>Jurrasic World, </span>').appendTo('#myDiv1');
+    })(jQuery);
+
+    // another way would be the following, again $ becomes a point to jQuery
+    jQuery(function($){
+        $('<span>The End of the World, </span>').appendTo('#myDiv1');
+    })
+</script>
+
+</body>
+</html>
