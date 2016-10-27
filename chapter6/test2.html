@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 2</title>
+    <script src="../chapter2/scripts/jquery-1.4.js"></script>
+</head>
+<body>
+
+<script>
+    var array1 = ['one', 'two', 'three'];
+    var array2 = [10, 50, 100, 150, 200];
+
+    // the first parameter is the index, second is the value
+    $.each(array1, function(name, value) {
+        $('<span> '+ value + ' </span>').appendTo('body');
+    });
+    $('<br>').appendTo('body');
+
+    $.each(array2, function(num, value) {
+        if ( value > 99 ) {
+            $('<span> '+ value + ' </span>').appendTo('body');
+        }
+    });
+    $('<br>').appendTo('body');
+
+    // using a short version of above using grep
+    var numbers = $.grep(array2, function(value) { return value > 99;});
+    $('<span> '+ numbers + ' </span><br>').appendTo('body');
+
+    var addedNumbers = $.map([0,1,2,3,4,5], function(value) {return value + 1;});
+    $('<span> '+ addedNumbers + ' </span><br>').appendTo('body');
+
+    // here we see if the number 2 was found
+    if ( $.inArray(2, [1,2,3,4]) == -1 ) {
+        $('<span> 2 was NOT found </span><br>').appendTo('body')
+    } else {
+        $('<span> 2 was found </span><br>').appendTo('body');
+    }
+
+    // using the merge utility to merge two arrays
+    var a1 = [0,1,2,3];
+    var a2 = [4,5,6,7];
+    $('<span> ' + $.merge(a1,a2) + ' </span><br>').appendTo('body');
+
+    // use the param utility to convert an string, object or a nested object into a URL string
+    var str1 = "paul %%";
+    var str2 = "Lorraine %$";
+    $('<span> Converting a string into a URL: ' + $.param({str1, str2}) + ' </span><br>').appendTo('body');
+
+    var obj1 = {
+        firstName: 'Paul',
+        lastName: 'Valle',
+        Born: 'London'
+    }
+
+    $('<span> Converting an object into a URL: ' + $.param(obj1) + ' </span><br>').appendTo('body');
+
+    var obj2 = {
+        name: {
+            first: 'Lorraine',
+            last: 'Valle'
+        },
+        birth: {
+            Born: 'Hemel Hempstead'
+        }
+    }
+
+    $('<span> Converting an nested object into a URL: ' + $.param(obj2) + ' </span><br>').appendTo('body');
+
+</script>
+
+</body>
+</html>
