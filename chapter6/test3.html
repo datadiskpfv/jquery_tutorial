@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 3</title>
+    <script src="../chapter2/scripts/jquery-1.4.js"></script>
+</head>
+</head>
+<body>
+
+<button type="button" id="loadbutton">Load Function</button>
+<button type="button" id="fireFunction">Fire Function</button>
+<br>
+<div id="mydiv"></div>
+
+<script>
+    // the below will point to a function if we load it
+    executeMessage = '';
+
+    $('#loadbutton').click(function(){
+       $.getScript('new_stuff.js');
+       $('#mydiv').html('<br>New Function loaded - try the fire function button');
+    });
+
+    $('#fireFunction').click(function() {
+       // check to see if the new_stuff.js was called in, basically check we can see the function
+       if ($.isFunction(executeMessage)) {
+           executeMessage('Hello World!');
+       } else {
+           $('#mydiv').html('<br>You have not pressed the load function button');
+       }
+    });
+</script>
+
+</body>
+</html>

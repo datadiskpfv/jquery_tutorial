@@ -68,6 +68,21 @@
 
     $('<span> Converting an nested object into a URL: ' + $.param(obj2) + ' </span><br>').appendTo('body');
 
+    // Testing objects
+    alert('str1 is an array ?: ' + $.isArray(str1));
+    alert('str1 is a plain object ?:' + $.isPlainObject(obj1));
+    alert('a1 is an array ?:' + $.isArray(a1));
+
+    alert('Does document contains a body: ' + $.contains( document.documentElement, document.body ));
+
+    $('<div id="tdiv1">value1 before creation: <span></span></div>').appendTo('body');
+
+    var tdiv1 = $("#tdiv1");
+    $.data( tdiv1, "test1", "VALUE-1" );
+    $( "#tdiv1 span:eq(0)" ).text( "" + $.data( tdiv1, "test1" ) );
+
+
+</script>
 </script>
 
 </body>
