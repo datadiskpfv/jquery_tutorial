@@ -8,8 +8,10 @@
         while (pattern.length>0) {
             $.formatDate.patternParts.lastIndex = 0;
             var matched = $.formatDate.patternParts.exec(pattern);
+            alert('Matched: ' + matched);
             if (matched) {
                 result.push($.formatDate.patternValue[matched[0]].call(this,date));
+                alert('result: ' + result);
                 pattern = pattern.slice(matched[0].length);
             }
             else {

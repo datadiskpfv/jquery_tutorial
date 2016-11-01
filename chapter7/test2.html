@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 2</title>
+</head>
+<body>
+
+<div id="mydiv>"></div>
+
+<script>
+
+    var now = new Date();
+
+    // some wont work as not got full code here, its just a test
+    patternValue = {
+        MMMM: function (date) {
+            return $.formatDate.monthNames[date.getMonth()];
+        },
+        MMM: function (date) {
+            return $.formatDate.monthNames[date.getMonth()].substr(0, 3);
+        },
+        MM: function (date) {
+            return $.toFixedWidth(date.getMonth() + 1, 2);
+        },
+        M: function (date) {
+            return date.getMonth() + 1;
+        }
+    };
+    patternParts = /^(yy(yy)?|M(M(M(M)?)?)?|d(d)?|EEE(E)?|a|H(H)?|h(h)?|m(m)?|s(s)?|S)/;
+
+    search = 'M'
+
+    result = patternParts.exec(search)[0];
+    alert('Pattern: ' + result);
+
+    alert('Answer:' + patternValue[result].call(this,now))
+</script>
+
+</body>
+</html>
