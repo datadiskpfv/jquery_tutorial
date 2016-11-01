@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test one</title>
+    <script src="../chapter2/scripts/jquery-1.4.js"></script>
+    <script src="formatDate.js"></script>
+</head>
+<body>
+
+<div id="mydiv"></div>
+
+ <script>
+     // my own custom utility
+     (function($) {
+       $.say = function(what) {alert('I say ' + what);};
+     })(jQuery);
+
+     // call the custom utility
+     //$.say('Hello World!');
+ </script>
+
+<script>
+    var now = new Date();
+    $('<span>Date : ' + $.formatDate(now, 'yyyy') + '</span><br>').appendTo('body');
+    $('<span>Month : ' + $.formatDate(now, 'MM') + '</span><br>').appendTo('body');
+    $('<span>Day : ' + $.formatDate(now, 'dd') + '</span><br>').appendTo('body');
+    $('<span>Hour : ' + $.formatDate(now, 'hh') + '</span><br>').appendTo('body');
+    $('<span>Minute : ' + $.formatDate(now, 'mm') + '</span><br>').appendTo('body');
+</script>
+</body>
+</html>
