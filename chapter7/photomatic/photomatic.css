@@ -1,3 +1,17 @@
+body {
+    background: #f5ffe8 none;
+}
+
+body.fancy {
+    background: #cccccc url('backg.png');
+}
+
+body,th,td {
+    font-family: 'Verdana',sans-serif;
+    font-size: 9pt;
+    color: #444444;
+}
+
 #pageContainer {
   width: 900px;
   background-color: transparent;
@@ -6,6 +20,28 @@
 
 h1 {
   margin: 0 0 32px 64px !important;
+}
+
+#pageContent {
+    padding: 16px;
+}
+
+h1 {
+    width: auto;
+    height: auto;
+    background-image: none;
+    padding: 0;
+    color: #4a6074;
+    font-size: 1.4em;
+}
+
+body.fancy h1 {
+    width: 640px;
+    height: 41px;
+    font-size: 1.2em;
+    background: url('images/banner.h1.png') no-repeat;
+    padding: 24px 0 0 80px;
+    margin: 0 0 16px 0;
 }
 
 #thumbnailsPane {

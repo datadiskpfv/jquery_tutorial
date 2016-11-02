@@ -3,9 +3,7 @@
   $.fn.photomatic = function(options) {
     var settings = $.extend({
       photoElement: 'img.photomaticPhoto',
-      transformer: function(name) {
-                     return name.replace(/thumbnail/,'photo');
-                   },
+      transformer: function(name) { return name.replace(/thumbnail/,'photo'); },
       nextControl: null,
       previousControl: null,
       firstControl: null,
@@ -16,8 +14,7 @@
 
     function showPhoto(index) {
       $(settings.photoElement)
-        .attr('src',
-              settings.transformer(settings.thumbnails$[index].src));
+        .attr('src', settings.transformer(settings.thumbnails$[index].src));
       settings.current = index;
     }
 

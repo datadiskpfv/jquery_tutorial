@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Boot 1</title>
+    <script src="../../chapter2/scripts/jquery-1.4.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootcloset.css">
+    <script>
+        $(function() {
+            $('#bootChooserControl').load('http://localhost/fetchBootStyleOptions.php');
+
+
+            $('#bootChooserControl').change(function(event){
+                //alert('get value number to pass to PHP: ' + $(event.target).val());
+
+                // using load
+                $('#productDetailPane').load(
+                        'http://localhost/fetchProductDetails.php',
+                        // get the value ID so that we can pass to apache/PHP
+                        // this is what is passwd - http://localhost/fetchProductDetails.php?style=7177382
+                        // {style: $(event.target).val()},
+                        $(this).serialize()
+                        // this line removes the "choose a style" line
+                        //function() { $('[value=""]', event.target).remove(); }
+                );
+
+                $('#colorChooserControl').load(
+                        'http://localhost/fetchColorOptions.php',
+                        $(this).serialize(),
+                        function(){
+                            $(this).attr('disabled', false);
+                            $('#sizeChooserControl')
+                            .attr('disabled', true)
+                            .html("");
+                        }
+                );
+
+                $('#colorChooserControl').change(function(event){
+                    $('#sizeChooserControl').load(
+                        'http://localhost/fetchSizeOptions.php',
+                        $('#bootChooserControl, #colorChooserControl').serialize(),
+                        function() {
+                            $(this).attr('disabled', false);
+                        }
+                    )
+                });
+
+                // let use bubbling to remove all the choose ????
+                $('#selectionsPane').change(function(){
+                    $('[value=""], event.target').remove();
+                });
+
+                // using get or post (replace post with get)
+                //$.get(
+                //        'http://localhost/fetchProductDetails.php',
+                //        // get the value ID so that we can pass to apache/PHP
+                //        {style: $(event.target).val()},
+                //        // this line removes the "choose a style" line
+                //        function(response) {
+                //            $('#productDetailPane').html(response);
+                //            $('[value=""]', event.target).remove();
+                //        }
+                //);
+
+            });
+        });
+    </script>
+</head>
+<body>
+  <div id="banner">
+      <img src="images/banner.boot.closet.png" alt="The Boot Closet">
+  </div>
+
+  <div id="pageContent">
+      <h1>Choose your boots</h1>
+      <div>
+          <div id="selectionPane">
+              <label for="bootChooserControl">Boot Style:</label>
+              <select id="bootChooserControl" name="bootStyle"></select>
+
+              <label for="colorChooserControl">Color:</label>
+              <select id="colorChooserControl" name="color" disabled="disabled"></select>
+
+              <label for="sizeChooserControl">Size:</label>
+              <select id="sizeChooserControl" name="size" disabled="disabled"></select>
+
+          </div>
+          <div id="productDetailPane"></div>
+      </div>
+  </div>
+
+</body>
+</html>

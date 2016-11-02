@@ -2,15 +2,12 @@
 <html>
   <head>
     <title>Photomatic Test</title>
-    <link rel="stylesheet" type="text/css"
-          href="../../styles/core.css">
+    <link rel="stylesheet" type="text/css" href="../../chapter2/styles/core.css">
     <link rel="stylesheet" type="text/css" href="photomatic.css">
-    <script type="text/javascript"
-            src="../../scripts/jquery-1.4.js"></script>
-    <script type="text/javascript"
-            src="jquery.jqia.photomatic.js"></script>
+    <script type="text/javascript" src="../../chapter2/scripts/jquery-1.4.js"></script>
+    <script type="text/javascript" src="jquery.jqia.photomatic.js"></script>
     <script type="text/javascript">
-      $(function(){
+      $(function() {
         $('#thumbnailsPane img').photomatic({
           photoElement: '#photoDisplay',
           previousControl: '#previousButton',
@@ -25,7 +22,6 @@
   </head>
 
   <body class="fancy">
-
     <div id="pageContainer">
       <div id="pageContent">
 
@@ -51,24 +47,17 @@
         </div>
 
         <div id="photoPane">
-          <img id="photoDisplay" src=""/>
+            <img id="photoDisplay" src=""/>
         </div>
 
         <div id="buttonBar">
-          <img src="button.placeholder.png" id="firstButton"
-               alt="First" title="First photo"/>
-          <img src="button.placeholder.png" id="previousButton"
-               alt="Previous" title="Previous photo"/>
-          <img src="button.placeholder.png" id="playButton"
-               alt="Play/Pause" title="Play or pause slideshow"/>
-          <img src="button.placeholder.png" id="nextButton"
-               alt="Next" title="Next photo"/>
-          <img src="button.placeholder.png" id="lastButton"
-               alt="Last" title="Last photo"/>
+          <img src="button.placeholder.png" id="firstButton" alt="First" title="First Photo"/>
+          <img src="button.placeholder.png" id="previousButton" alt="Previous" title="Previous Photo"/>
+          <img src="button.placeholder.png" id="playButton" alt="Play/Pause" title="Play or Pause slideshow"/>
+          <img src="button.placeholder.png" id="nextButton" alt="Next" title="Next Photo"/>
+          <img src="button.placeholder.png" id="lastButton" alt="Last" title="Last Photo"/>
         </div>
-
       </div>
     </div>
-
   </body>
 </html>
