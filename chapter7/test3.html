@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 3</title>
+    <script src="../chapter2/scripts/jquery-1.4.js"></script>
+    <!-- call in the jquery utility function -->
+    <script src="makeItBlueOrRed.js"></script>
+    <style>
+        div {
+            border: 1px solid black;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div id="hello">Hello</div>
+<br>
+<div id="bye">Good Bye</div>
+
+<script>
+    $(function() {
+      // lets use the new utility function
+      $('#hello').makeItBlueOrRed();
+      //$('#bye').makeItBlueOrRed();
+    });
+
+</script>
+</body>
+</html>
