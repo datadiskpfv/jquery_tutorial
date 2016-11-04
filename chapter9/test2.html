@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 2</title>
+    <script src="js/jquery-1.8.3.js"></script>
+</head>
+<body>
+
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+<button id="toggle">Toggle</button>
+<br>
+<br>
+<div id="displayPanel" style="display:block">
+ <img id="img1" src="images/hibiscus.medium.jpg"/>
+</div>
+
+<script>
+    $('#show').click(function() {
+        //$('#displayPanel').removeAttr('style');
+        $('#displayPanel').show();
+    });
+
+    $('#hide').click(function() {
+        $('#displayPanel').hide();
+    });
+
+    $('#toggle').click(function() {
+        $('#displayPanel').toggle();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Boot 1</title>
+    <script src="../../chapter2/scripts/jquery-1.4.js"></script>
+    <script src="termifier.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootcloset.css">
+    <script>
+        $(function() {
+
+            $('#bootChooserControl')
+                    .load('http://localhost/fetchBootStyleOptions.php');
+
+            $('#bootChooserControl').change(function(event){
+                $('#productDetailPane').load(
+                        'http://localhost/fetchProductDetails.php',
+                        $('#bootChooserControl').serialize(),
+                        function(){ $('abbr')
+                                .termifier(
+                                        'http://localhost/fetchTerm.php',
+                                        {
+                                            addClass: 'fancy',
+                                            origin: {top: 28, left: 5}
+                                        }
+                                );
+                        }
+                );
+                $('#colorChooserControl').load(
+                        'http://localhost/fetchColorOptions.php',
+                        $('#bootChooserControl').serialize(),
+                        function(){
+                            $('#colorChooserControl').attr('disabled',false);
+                            $('#sizeChooserControl')
+                                    .attr('disabled',true)
+                                    .find('option').remove();
+                        }
+                );
+            });
+
+            $('#colorChooserControl').change(function(event){
+                $('#sizeChooserControl').load(
+                        'http://localhost/fetchSizeOptions.php',
+                        $('#bootChooserControl,#colorChooserControl').serialize(),
+                        function(){
+                            $('#sizeChooserControl').attr('disabled',false);
+                        }
+                );
+            });
+
+            $('#selectionsPane').change(function(event){
+                $('[value=""]',event.target).remove();
+            });
+
+            $('body').ajaxComplete(function(event,xhr,options){
+                if (options.url.indexOf('fetchProductDetails') != -1) {
+                    $('div.termifier').remove();
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+  <div id="banner">
+      <img src="images/banner.boot.closet.png" alt="The Boot Closet">
+  </div>
+
+  <div id="pageContent">
+      <h1>Choose your boots</h1>
+      <div>
+          <div id="selectionPane">
+              <label for="bootChooserControl">Boot Style:</label>
+              <select id="bootChooserControl" name="bootStyle"></select>
+
+              <label for="colorChooserControl">Color:</label>
+              <select id="colorChooserControl" name="color" disabled="disabled"></select>
+
+              <label for="sizeChooserControl">Size:</label>
+              <select id="sizeChooserControl" name="size" disabled="disabled"></select>
+
+          </div>
+          <div id="productDetailPane"></div>
+      </div>
+  </div>
+
+</body>
+</html>

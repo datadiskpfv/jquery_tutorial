@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 3</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+</head>
+<body>
+
+<div id="mydiv1" style="height:200px; width:300px; border:1px solid black">Box1</div>
+
+<div id="mydiv2" style="height:50px; width:50px; border:1px solid black">Box2</div>
+
+<script>
+    $( "#mydiv2" ).position({
+        my: "center, bottom",
+        at: "center",
+        of: "#mydiv1"
+    });
+</script>
+
+</body>
+</html>
